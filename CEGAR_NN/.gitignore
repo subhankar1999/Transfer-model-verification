@@ -1,0 +1,11 @@
+__pycache__/
+.idea/
+
+AR_images/
+AR_properties/
+AR_results/
+AR_sbatch_files/
+experiments/dev_exp_results_archive
+tasks.txt
+tmp
+notebooks/*

@@ -1,0 +1,59 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local Python and conda environments
+.venv/
+venv/
+env/
+myenv/
+.conda/
+
+# IDE and OS files
+.idea/
+.vscode/
+.agents/
+.codex/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Runtime logs and generated CSV outputs
+*.log
+transfer_execution_log*.csv
+result.csv
+results_new/
+
+# Generated transfer/reuse artifacts
+transfer_network/
+abstract_reuse/transferred_networks/
+node_mapping.json
+mapping_extraction_output.txt
+
+# Generated model/data artifacts that can be recreated
+random_networks/
+*.pkl
+
+# CEGAR-NN generated experiment results
+CEGAR_NN/experiments/dev_exp_results_archive/
+
+# Marabou build outputs
+Marabou/build/
+Marabou/bin/
+Marabou/lib/
+
+# Keep repository metadata and source files trackable
+!.gitignore
+!README.md
+!Artifact_Readme.txt
+!conda_marabou_py3.8.yml
