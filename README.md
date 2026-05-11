@@ -25,6 +25,15 @@ The workflow uses the existing `CEGAR_NN` abstraction/refinement framework toget
 
 This project is known to run successfully in the conda environment:
 
+An exported conda environment file is included as `conda_marabou_py3.8.yml`.
+
+Create the environment with command
+
+```bash
+conda env create -f conda_marabou_py3.8.yml
+```
+Then activate the environment
+
 ```bash
 conda activate marabou_py3.8
 ```
@@ -37,19 +46,23 @@ The environment should provide Python 3.8 and the required Python packages, incl
 - `networkx`
 - `matplotlib`
 
-An exported conda environment file is included as `conda_marabou_py3.8.yml`.
+
 
 For full setup instructions, see `INSTALLATION.md`.
 
-## How to Run
+## How to Execute the tool
 
 Run the main script from the project root directory:
 
 ```bash
-python abstract_reuse/transfer_abstract.py
+python3 abstract_reuse/transfer_abstract.py
 ```
 
-By default, this runs network `1_6`, property `property_1`, alpha `0.05`, and writes logs to `results_new/transfer_execution_log_1.csv`.
+By default, this runs network `1_1`, property `property_1`, alpha `0.05`, and writes logs to `sample_result.csv`.
+
+In `sample_result.csv` file, it logs all the necessary informations like Total verification time of original netowrk and transfer network using CEGAR-NN (`from scratch verification`) and number of refinemnts needed and individual times of each refinement, time to transfer the abstract (`ABSTRACT REUSE` time) and verification time of transfer network using `ABSTRACT REUSE`.
+
+varry `alpha`, `strategy`, `layer` to generate  results for different transfered networks for the same benchmark network. The average times were reported in paper. 
 
 Example with explicit parameters:
 
@@ -60,16 +73,20 @@ python abstract_reuse/transfer_abstract.py \
   -alpha 0.05 \
   -strategy random-discrete \
   -max_refine 10 \
+  -layer 10 \
   -log results_new/transfer_execution_log_1.csv
-```
 
-The `-nn` option can be an ACAS Xu network identifier such as `1_6`. The script resolves it to:
+```
+Descriptions of each parameters are given below.
+
+The `-nn` option can be an ACAS Xu network identifier such as `1_1`. The script resolves it to:
 
 ```text
-nnet/ACASXU_run2a_1_6_batch_2000.nnet
+nnet/ACASXU_run2a_1_1_batch_2000.nnet
 ```
 
 You can also pass a direct path to a `.nnet` file.
+
 
 ## Main Workflow
 

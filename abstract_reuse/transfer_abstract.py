@@ -2119,7 +2119,7 @@ def parse_args():
     parser.add_argument(
         "-nn", "--nnet_file",
         dest="nnet_file",
-        default="1_6",
+        default="1_1",
         type=str,
         help="ACAS Xu network identifier (e.g., '1_6' for ACASXU_run2a_1_6_batch_2000.nnet)"
     )
@@ -2168,7 +2168,7 @@ def parse_args():
     parser.add_argument(
         "-log", "--log_csv",
         dest="log_csv",
-        default="results_new/transfer_execution_log_1.csv",
+        default="sample_result.csv",
         type=str,
         help="Path to the CSV file for logging execution metrics"
     )
