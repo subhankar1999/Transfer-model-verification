@@ -1,5 +1,5 @@
 # Abstract Reuse for Neural Network Verification
-<p> <align="center>
+<p align="center">
   <img src="./figures/workflow.png" style="width: 60%; height: auto;">
 </p>
 
