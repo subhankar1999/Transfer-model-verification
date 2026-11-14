@@ -12,7 +12,8 @@ The workflow uses the existing `CEGAR_NN` abstraction/refinement framework toget
 ```text
 .
 ├── abstract_reuse/
-│   ├── transfer_abstract.py        # Main script to run the transfer abstraction workflow
+│   ├── transfer_abstract.py        # Main script to run the Abstract Reuse workflow on perturbed transfer network
+|   ├── practical_test.py           # Main script to run proposed workflow on real transfer network of same architecture
 │   ├── transfer_logging.py         # CSV logging utilities
 │   ├── transferred_networks/       # Saved intermediate/final network artifacts
 │   └── *.py / logging docs         # Helper scripts and logging documentation
