@@ -7,58 +7,10 @@ This document describes the purpose and execution flow of `abstract_reuse/practi
 `practical_test.py` is a full experimental pipeline for testing the abstract-reuse idea on ACAS Xu-style neural networks. The script:
 
 1. loads an original network and a transferred network,
-2. perturbs edge weights using a configurable strategy,
-3. creates an abstract network from the source model,
-4. reuses that abstraction to build an abstract transfer network,
-5. verifies the transfer model with a CEGAR-style refinement loop,
-6. compares the result with a fresh CEGAR verification of the transferred network.
-
-The script is designed to evaluate whether a reused abstraction can verify a transfer network efficiently while preserving correctness.
-
----
-
-## Purpose
-
-The program implements a research workflow for the following scenario:
-
-- Start from a validated source network.
-- Apply a transfer or perturbation to network weights.
-- Reuse the structure or abstraction learned from the original network.
-- Verify the transferred model without rebuilding the entire abstraction from scratch.
-- Compare against the baseline of verifying the transfer model independently.
-
-This is useful when testing transfer robustness, abstraction reuse, and CEGAR-based verification acceleration.
-
----
-
-## Script structure
-
-The file contains the following major parts:
-
-### 1. Utility and timeout helpers
-
-The script defines:
-
-- `TimeoutException`
-- `timeout_handler()`
-- `run_with_timeout()`
-
-These are used to stop long-running verification steps and continue the process without hanging the whole run.
-
-### 2. `NetworkTransferer`
-
-This is the main class in the file. Its responsibilities include:
-
-- loading the original and transferred .nnet networks,
-- perturbing weights with configurable strategies,
-- extracting abstract-network node mappings,
-- constructing the abstract transfer network,
-- running verification loops,
-- saving intermediate and final results.
-
-### 3. CLI entry point
-
-The script exposes a command-line interface via `parse_args()` and `main()`. It is intended to be run as a standalone program.
+2. creates an abstract network from the source model,
+3. reuses that abstraction to build an abstract transfer network,
+4. verifies the transfer model with a CEGAR-style refinement loop,
+5. compares the result with a fresh CEGAR verification of the transferred network.
 
 
 ## Command-line arguments
