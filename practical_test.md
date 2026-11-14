@@ -1,6 +1,6 @@
-# Practical Transfer-and-Verification Workflow
+# Practical Effectiveness Test of Abstract Reuse
 
-This document describes the purpose and execution flow of `abstract_reuse/practical_test.py`.
+This document describes the usage of `abstract_reuse/practical_test.py`.
 
 ## Overview
 
