@@ -1,4 +1,7 @@
 # Abstract Reuse for Neural Network Verification
+<p> align="center>
+  <img src="./figures/workflow.png" style="width: 60%; height: auto;">
+</p>
 
 This project implements an abstract-reuse workflow for verifying transferred neural networks. The main working directory is `abstract_reuse`, and the main executable script is `abstract_reuse/transfer_abstract.py`.
 
