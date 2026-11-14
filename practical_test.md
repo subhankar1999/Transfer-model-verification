@@ -26,14 +26,7 @@ The script accepts the following arguments:
 
 -pid, --property_id
     Property ID to verify, such as property_1.
-
--alpha, --alpha
-    Maximum perturbation magnitude used in transfer step.
-
--strategy
-    Weight-perturbation strategy. Choices:
-    random, worst_case, best_case, random-discrete
-
+    
 -r, --results_dir
     Directory used for CEGAR result artifacts.
 
