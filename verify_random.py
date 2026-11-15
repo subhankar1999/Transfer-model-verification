@@ -26,7 +26,7 @@ num_hidden = args.num_hidden
 neurons_per_hidden = args.neurons_per_hidden
 
 item = 5
-for item in range (1,16):
+for item in range (1,25):
     output_folder = "random_nnet/"
     output_folder += "random"+str(num_hidden)+"x"+str(neurons_per_hidden)+"/"
     file_name = "network"+str(item)+".nnet"
