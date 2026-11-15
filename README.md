@@ -3,7 +3,7 @@
   <img src="./figures/workflow.png" style="width: 60%; height: auto;">
 </p>
 
-This project implements an abstract-reuse workflow for verifying transferred neural networks. The main working directory is `abstract_reuse`, and the main executable script is `abstract_reuse/transfer_abstract.py`.
+This project implements an abstract-reuse workflow for verifying transferred neural networks. The main working directory is `abstract_reuse`, and the main executable scripts are `abstract_reuse/transfer_abstract.py` and `abstract_reuse/practical_test.py`.
 
 The workflow uses the existing `CEGAR_NN` abstraction/refinement framework together with Marabou through `maraboupy`.
 
