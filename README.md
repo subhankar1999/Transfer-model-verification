@@ -20,6 +20,9 @@ The workflow uses the existing `CEGAR_NN` abstraction/refinement framework toget
 ├── CEGAR_NN/                       # CEGAR-NN framework used for abstraction/refinement
 ├── Marabou/                        # Marabou framework
 ├── nnet/                           # Original ACAS Xu .nnet models
+├── coav_data/                      # Original CoAv .nnet models
+├── generate_random_netwrok.py      # A helper script to generate a random network with specified architecture
+├── verify_random.py                # Main script to execute proposed workflow on an arbitary network
 ├── sample_result.csv/              # Sample result for a network
 ├── conda_marabou_py3.8.yml         # Conda environment export
 └── INSTALLATION.md                 # Installation guide to install required packages
@@ -91,7 +94,6 @@ nnet/ACASXU_run2a_1_1_batch_2000.nnet
 
 You can also pass a direct path to a `.nnet` file.
 
-
 ## Main Workflow
 
 `abstract_reuse/transfer_abstract.py` performs the following steps:
@@ -126,6 +128,44 @@ Typical outputs include:
 - Metadata and node mappings in `abstract_reuse/transferred_networks/`
 - CSV execution logs in `results_new/` or the path passed with `-log`
 - CEGAR-NN experiment artifacts in `CEGAR_NN/experiments/dev_exp_results_archive/`
+
+### Running the practical transfer test
+
+Use `abstract_reuse/practical_test.py` when you want to evaluate the abstract-reuse workflow on a real source/target network pair with the same architecture. The script accepts the source network, target network, property, and output log path as command-line arguments.
+
+Example:
+
+```bash
+python3 abstract_reuse/practical_test.py \
+  -nn 1_1 \
+  --tnnet_file 1_6 \
+  -pid property_1 \
+  -max_refine 10 \
+  -log results_new/practical_transfer_log.csv
+```
+
+This runs the full practical transfer workflow for the source ACAS network `1_1` against the transferred network `1_6`, then saves the execution metrics to the CSV log file provided by `-log`.
+
+## Notes
+- You can pass full path location like `nnet/ACASXU_run2a_1_1_batch_2000.nnet` instead of `1_1`.
+- To execute for CoAv Dataset you have to pass full path location like `coav_data/reluBenchmark0.359375s_UNSAT.nnet`
+
+
+### Running the random-network verification script
+
+To generate and evaluate random neural networks with the project workflow, run `verify_random.py` from the repository root. The script expects two positional arguments:
+
+- `num_hidden`: number of hidden layers
+- `neurons_per_hidden`: neurons in each hidden layer
+
+Example:
+
+```bash
+python3 verify_random.py 2 256
+```
+
+This creates a set of random networks under `random_nnet/random2x256/` and runs the transfer-abstraction verification workflow for each generated network, writing the outputs to `random_exp_result/random2x256.csv`.
+
 
 ## Notes
 
